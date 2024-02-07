@@ -1,0 +1,26 @@
+server:
+  port: 8082
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka
+
+spring:
+  application:
+    name: api-gateway
+  cloud.gateway:
+    discovery:
+      locator:
+        enabled: true
+        lowerCaseServiceId: true
+    routes:
+      - id: hello
+        uri: lb://eclient
+        predicates:
+          - Path=/hello
+
+ribbon:
+  eureka:
+    enabled: true
+  OkToRetryOnAllOperations: true

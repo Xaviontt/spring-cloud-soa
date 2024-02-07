@@ -1,4 +1,6 @@
 rootProject.name = 'spring-cloud-soa'
 
 includeBuild 'eureka-server'
+includeBuild 'eureka-client'
+includeBuild 'api-gateway'
 
